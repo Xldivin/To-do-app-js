@@ -18,13 +18,13 @@ function App() {
   
   // Fetch data
    const fetchtask = async () => {
-      const response = await fetch ('https://to-app-axel.herokuapp.com/tasks')
+      const response = await fetch ('https://json-db-xwcy.onrender.com/tasks')
       const data = await response.json() 
       return data
     }
 
     const fetchonetask = async (id) => {
-      const response = await fetch (`https://to-app-axel.herokuapp.com/tasks/${id}`)
+      const response = await fetch (`https://json-db-xwcy.onrender.com/tasks/${id}`)
       const data = await response.json() 
       return data
     }
@@ -34,7 +34,7 @@ function App() {
       const tasktotoggle = await fetchonetask(id)
       const updatedtask = { ...tasktotoggle, iscomplete: !tasktotoggle.iscomplete}
       
-      const res = await fetch(`https://to-app-axel.herokuapp.com/tasks/${id}`,{
+      const res = await fetch(`https://json-db-xwcy.onrender.com/tasks/${id}`,{
         method: 'PUT',
         headers: {
           'Content-Type' : 'application/json'
@@ -60,7 +60,7 @@ function App() {
  
 //ADD TASK
 const addTask = async (task) => {
-   const res = await fetch('https://to-app-axel.herokuapp.com/tasks',{
+   const res = await fetch('https://json-db-xwcy.onrender.com/tasks',{
      method: 'POST',
      headers: {
      "Content-Type" : "application/json"
@@ -79,7 +79,7 @@ const addTask = async (task) => {
 
 //DELETE TASK
 const deleteTask = async (id) => {
-  await fetch(`https://to-app-axel.herokuapp.com/tasks/${id}`, {
+  await fetch(`https://json-db-xwcy.onrender.com/tasks/${id}`, {
     method: 'DELETE',
   })
   setTask(tasks.filter((task)=> task.id !== id))
